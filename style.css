@@ -1,0 +1,110 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* gerar margens, bordas (limite de largura igual ao do elemento pai, fonte) */
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ::-webkit-slider-runnable-track
+}
+/* na body cor de fundo cinza, display flex para alinhar os itens centralizados, justificar ao centro.
+padding de 3em somente para rolar o topo da calculadora e não ficar muito no topo do navegador*/
+body {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  jsutify-content: center;
+  padding: 3em;
+}
+
+/* calc é o id criado na index que engloba a calculadora */
+/* largura da caixa, espacamento dos pads das extremidades, cor de fundo, cor de texto, Flex para itens internos, flex direction column para ajustar um item de baixo do outro */
+#calc {
+  width: 400px;
+  padding: .5em;
+  background-color: #c6c6c6;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* tamanho, fonte e cor do título,  */
+#calc h3 {
+  font-size: .8em;
+  font-weight: 300;
+  color: #666;
+}
+
+/* operações anteriores e atuais, text align como right para aparecer o texto da direita para esquerda */
+#operations {
+  text-align: right;
+}
+
+/* /* para melhores praticas, os comandos que tem regras em comum, ficam no mesmo seletor como no exemplo de #previous-operation, 
+#current-operation  acima, assim economiza linhas de código. e as regras particulares ficam separadas... como no exemplo que utilizeifontsize abaixo */ 
+#previous-operation, #current-operation {
+  min-height: 1/6em;
+  padding: .2em;
+  overflow-wrap: break-word;
+}
+/* para as operações, cor mais clara, padding novamente para os numeros não ficarem muito proximos as extremidades da tela(borda) break-word para prever a altura do numero, para ele não entrar errado e depois ajustar (evita falhas e bugs)
+*/
+#previous-operation {
+  color: #000000;
+  padding: 0.2em;
+  overflow-wrap: break-word;
+  min-height:1.6em;
+   font-size: 3em;
+  font-weight: 700;
+}
+
+/* fonte 3em (um pouco maior ) e font-weight 700 para deixar a fonte mais expessa */
+#current-operation {
+  font-size: 3em;
+  font-weight: 700;
+}
+/* final do exemplo da boa prática citada logo acima */
+
+
+/* (PARA OS BOTÕES) display de grid, nessa regra de template-columns, conseguimos definir o proporções para cada coluna da calculadora, no exemplo fizemos 1 linha com 4 colunas, com o GAP ajustamos o espaçamento
+*/
+#buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3px
+}
+
+/* ajuste de botões individualmente */
+/* borda com pixel solido transparente, no rover ela ascende. tira o raio da bora. Largura de 4em. Fonte um pouco maior que os botoes. Cor. ponteiro do mouse aparece quando passar o mouse sobre os botões */
+#buttons-container button {
+  border: 1px solid transparent;
+  border-radius: 0;
+  height: 4em;
+  fonts-size: 1.2em;
+  background-color: #dbdbdb;
+  cursor: pointer;
+}
+
+/* cores mais claras para os botões de numeros */
+#buttons-container .number {
+  background-color: #F3F3F3;
+}
+
+/* cor de fundo dos botões. Ascender cor da borda dos botões */
+#buttons-container button:hover {
+  background-color: #BABABA;
+  border-color: #149;
+}
+
+/* Botão de igual para ocupar 2 espaço de duas colunas na linha */
+#buttons-container #equal-btn {
+  grid-column: span 2;
+  background-color: #75a5cb;
+}
+
+/*  */
+#buttons-container #equal-btn:hover {
+  background-color: #3a91d8;
